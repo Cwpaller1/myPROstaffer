@@ -1,0 +1,209 @@
+body {
+--primary-color: #0080b3;
+--secondary-color: #F5F5F5;
+background-color: var(--primary-color);
+margin: 0;
+height: 100vh;
+min-width:100%;
+display:grid;
+grid-template-columns: 80% 20%;
+grid-template-rows: 80px auto 50px;
+grid-template-areas:
+    "top top_nav"
+    "main nav"
+    "bottom bottom";
+font-family: "helvetica";
+}
+
+a {
+display: block;
+text-decoration: None;
+color: var(--primary-color);
+padding: 10px 0px 0px 5px;
+}
+
+h1 {
+color: var(--primary-color);
+margin-top:15px;
+margin-bottom:0px;
+text-align:center;
+font-size:25px;
+}
+
+#top_logo_panel{
+grid-area: top;
+background-color: var(--secondary-color);
+}
+
+#top_logo {
+display: inline;
+height: 50px;
+width: auto;
+padding: 0px 0px 0px 20px;
+}
+
+#top_nav{
+grid-area: top_nav;
+background-color: var(--secondary-color);
+text-align:right;
+padding-right: 20px;
+}
+
+#top_nav a{
+display: inline-block;
+text-decoration: none;
+color: var(--primary-color);
+padding: 20px;
+font-size: 20px;
+}
+
+#top_nav a:hover{
+background-color: var(--primary-color);
+color: var(--secondary-color);
+}
+
+#main_cube{
+background-color: var(--secondary-color);
+grid-area: main;
+margin: 30px;
+border-radius: 10px 25px;
+box-shadow: 5px 5px 2px grey;
+}
+
+#side_cube{
+background-color: var(--secondary-color);
+grid-area: nav;
+margin:30px;
+border-radius: 10px 25px;
+box-shadow: 5px 5px 2px grey ;
+}
+
+#bottom_panel{
+grid-area: bottom;
+background-color: var(--secondary-color);
+color: var(--primary-color);
+text-align: center;
+}
+
+.Person_Form{
+display: grid;
+grid-template-columns: auto auto;
+grid-template-rows: auto auto auto;
+grid-template-areas:
+    "name address"
+    "contact none"
+    "submit submit";
+text-align: center;
+color: var(--primary-color);
+}
+
+.name {
+margin-right:10px;
+display: grid;
+grid-area: name;
+justify-self:right;
+grid-template-columns: auto auto;
+grid-template-rows: auto;
+grid-template-areas:
+    "labels inputs";
+}
+
+.address {
+margin-left:10px;
+display:grid;
+grid-area: address;
+justify-self:left;
+grid-template-columns: auto auto;
+grid-template-rows: auto;
+grid-template-areas:
+    "labels inputs";
+}
+
+.contact {
+margin-right: 10px;
+display:grid;
+grid-area: contact;
+justify-self:right;
+grid-template-columns: auto auto;
+grid-template-rows: auto;
+grid-template-areas:
+    "labels inputs";
+}
+
+.submit_button {
+grid-area: submit;
+}
+
+.Results {
+display: grid;
+grid-template-columns: 33% 33% 33%;
+grid-auto-rows: auto;
+grid-template-areas:
+    "Result Result Result";
+justify-self:center;
+display:block;
+width:100%;
+}
+
+.labels{
+display: inline-block;
+text-align:right;
+grid-area: labels;
+}
+
+.inputs{
+display: inline-block;
+text-align:left;
+grid-area: inputs;
+}
+
+.labels label{
+padding:5px;
+margin: 5px;
+display: block;
+}
+
+.inputs input{
+padding: 5px;
+margin: 3px;
+}
+
+input[type="submit"]{
+font-size: 20px;
+margin: 15px;
+background-color: var(--secondary-color);
+color: var(--primary-color);
+border-radius: 10px;
+border-color: var(--primary-color);
+border-width: 2px;
+}
+
+input[type="submit"]:hover{
+background-color: var(--primary-color);
+color: var(--secondary-color);
+}
+
+input[type="button"]{
+font-size: 20px;
+margin: 15px;
+background-color: var(--secondary-color);
+color: var(--primary-color);
+border-radius: 10px;
+border-color: var(--primary-color);
+border-width: 2px;
+}
+
+input[type="button"]:hover{
+background-color: var(--primary-color);
+color: var(--secondary-color);
+}
+
+#Result_Button input[type="submit"]{
+display:block;
+width:80%;
+font-size: 12px;
+margin: 4px auto 4px auto;
+}
+
+
+

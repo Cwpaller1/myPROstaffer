@@ -1,0 +1,76 @@
+{% extends 'data/new_layout.html' %}
+
+{% block main_cube%}
+<h1>Search Database</h1>
+        <form class=Person_Form method="POST">
+            {% csrf_token %}
+            <div class="name">
+                <div class="labels">
+                    <br>
+                    <label>First:</label>
+                    <label>Last:</label>
+                    <label>Business:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="text" name="first">
+                    <br>
+                    <input type="text" name="last">
+                    <br>
+                    <input type="text" name="business">
+                </div>
+
+            </div>
+
+            <div class="address">
+                <div class="labels">
+                    <br>
+                    <label>Address:</label>
+                    <label>City:</label>
+                    <label>State:</label>
+                    <label>Zip Code:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="text" name="address">
+                    <br>
+                    <input type="text" name="city">
+                    <br>
+                    <input type="text" name="state">
+                    <br>
+                    <input type="text" name="zip">
+                </div>
+            </div>
+
+            <div class="contact">
+                <div class="labels">
+                    <br>
+                    <label>Phone:</label>
+                    <label>Email:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="text" name="phone">
+                    <br>
+                    <input type="text" name="email">
+                </div>
+            </div>
+
+            <div class="submit_button">
+                <input type="submit" value="Search" name="Search">
+            </div>
+        </form>
+
+    <div class="Results">
+    {% for item in result %}
+            <form action="{% url 'data:edit' item.id %}">
+                {% csrf_token %}
+            <div id="Result_Button">
+            <input type="submit" value='{{item.first}} {{item.last}}'>
+            </div>
+            </form>
+    {% endfor %}
+    <p>{{error}}</p>
+    </div>
+
+{% endblock %}

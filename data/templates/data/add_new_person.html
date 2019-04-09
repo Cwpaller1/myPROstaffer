@@ -1,0 +1,69 @@
+{% extends 'data/new_layout.html' %}
+{% block main_cube %}
+    <div id="add_new_person">
+        <h1>Add New Person To Database</h1>
+         <form class=Person_Form method="POST">
+            {% csrf_token %}
+            <div class="name">
+                <div class="labels">
+                    <br>
+                    <label>First:</label>
+                    <label>Last:</label>
+                    <label>Business:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="text" name="first">
+                    <br>
+                    <input type="text" name="last">
+                    <br>
+                    <input type="text" name="business">
+                </div>
+
+            </div>
+
+            <div class="address">
+                <div class="labels">
+                    <br>
+                    <label>Address:</label>
+                    <label>City:</label>
+                    <label>State:</label>
+                    <label>Zip Code:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="text" name="address">
+                    <br>
+                    <input type="text" name="city">
+                    <br>
+                    <input type="text" name="state">
+                    <br>
+                    <input type="text" name="zip">
+                </div>
+            </div>
+
+            <div class="contact">
+                <div class="labels">
+                    <br>
+                    <select>
+                        <option value="unknown">Unknown</option>
+                        <option value="cell">Cell</option>
+                        <option value="work">Work</option>
+                        <option value="home">Home</option>
+                    </select>
+                    <label>Email:</label>
+                </div>
+                <div class="inputs">
+                    <br>
+                    <input type="tel" name="cell" value="{{person.cell}}">
+                    <br>
+                    <input type="email" name="email" value="{{person.email}}">
+                </div>
+            </div>
+
+            <div class="submit_button">
+                <input type="submit" value="Submit" name="Search">
+            </div>
+        </form>
+    </div>
+{% endblock %}
