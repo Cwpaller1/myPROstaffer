@@ -38,14 +38,14 @@
                     <br>
                     <input type="text" name="state">
                     <br>
-                    <input type="text" name="zip">
+                    <input type="number" name="zip">
                 </div>
             </div>
 
             <div class="contact">
                 <div class="labels">
                     <br>
-                    <select>
+                    <select name="phone_type">
                         <option value="unknown">Unknown</option>
                         <option value="cell">Cell</option>
                         <option value="work">Work</option>
@@ -55,14 +55,14 @@
                 </div>
                 <div class="inputs">
                     <br>
-                    <input type="tel" name="cell" value="{{person.cell}}">
+                    <input type="number" name="telephone">
                     <br>
-                    <input type="email" name="email" value="{{person.email}}">
+                    <input type="email" name="email">
                 </div>
             </div>
 
             <div class="submit_button">
-                <input type="submit" value="Submit" name="Search">
+                <input type="submit" value="Submit" name="Add_New_Person">
             </div>
         </form>
     </div>

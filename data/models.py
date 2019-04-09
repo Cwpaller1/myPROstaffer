@@ -5,17 +5,17 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Phone(models.Model):
     person = models.ForeignKey('Person', blank=True, null=True, on_delete=models.CASCADE)
-    CELL = 'C'
-    WORK = 'W'
-    HOME = 'H'
-    UNKNOWN = 'U'
+    CELL = 'Cell'
+    WORK = 'Work'
+    HOME = 'Home'
+    UNKNOWN = 'Unknown'
     PHONE_TYPE_CHOICES = (
         (CELL, 'Cell'),
         (WORK, 'Work'),
         (HOME, 'Home'),
         (UNKNOWN, 'Unknown')
     )
-    phone_type = models.CharField(max_length=1, choices=PHONE_TYPE_CHOICES, default=UNKNOWN)
+    phone_type = models.CharField(max_length=7, choices=PHONE_TYPE_CHOICES, default=UNKNOWN)
     phone_number = models.IntegerField()
 
 
@@ -50,7 +50,7 @@ class Person(models.Model):
     address = models.CharField(max_length=50, default='', blank=True)
     city = models.CharField(max_length=30, default='', blank=True)
     state = models.CharField(max_length=30, default='', blank=True)
-    zip = models.IntegerField(null=True, blank=True)
+    zip = models.IntegerField(null=True, blank=True, default=0)
     email = models.EmailField(default='', blank=True)
 
     def __str__(self):

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Person
+from .models import Person, Phone
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import UpdateView
@@ -50,11 +50,21 @@ def search(request):
 #@login_required
 def add_new_person(request):
     if request.method == 'POST':
-        new_person = Person(first=request.POST['first'], last=request.POST['last'], address=request.POST['address'],
-                            city=request.POST['city'], state=request.POST['state'], zip=request.POST['zip'],
-                            email=request.POST['email'])
-        new_person.save()
-        return render(request, 'data/add_new_person.html')
+        if request.POST['telephone'] is 0:
+            new_person = Person(first=request.POST['first'], last=request.POST['last'], address=request.POST['address'],
+                                city=request.POST['city'], state=request.POST['state'], zip=request.POST['zip'],
+                                email=request.POST['email'])
+            new_person.save()
+            return render(request, 'data/add_new_person.html')
+        else:
+            new_person = Person(first=request.POST['first'], last=request.POST['last'], address=request.POST['address'],
+                                city=request.POST['city'], state=request.POST['state'], zip=request.POST['zip'],
+                                email=request.POST['email'])
+            new_phone = Phone(person=new_person, phone_type=request.POST['phone_type'],
+                              phone_number=request.POST['telephone'])
+            new_person.save()
+            new_phone.save()
+            return render(request, 'data/add_new_person.html')
     else:
         return render(request, 'data/add_new_person.html')
 
